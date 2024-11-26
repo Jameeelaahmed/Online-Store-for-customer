@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #f5f1ed;
+    --secondary-color: rgb(18, 18, 18);
+}
+
+body {
+    /* background-color: var(--main-color); */
+    width: 100%;
+    height: 100vh;
+    font-family: "Varela Round", serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.triangle {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: gray;
+    clip-path: polygon(0 100%, 70% 0, 100% 100%);
+    overflow: hidden;
+    /* Ensures any extra content is hidden */
+}
+
+.triangle::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    /* Push the curve above the triangle */
+    left: 0;
+    width: 70%;
+    height: 100px;
+    /* Height controls the curve size */
+    background: gray;
+    /* Match the triangle's color */
+    border-radius: 0 0 50px 50px;
+    /* Round only the bottom corners */
+}
