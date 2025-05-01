@@ -6,5 +6,13 @@
     "Services": "Dienstleistungen",
     "Cart": "Warenkorb",
     "Add to Cart": "Hinzufügen",
-    "Size": "Größe"
+    "Size": "Größe",
+    "Remove": "Entfernen",
+    "Order Summery": "Bestellübersicht",
+    "Copoun": "Gutschein",
+    "Apply": "Anwenden",
+    "Subtotal": "Zwischensumme",
+    "Shipping Fee": "Versandkosten",
+    "Total": "Gesamt",
+    "Checkout": "Kasse"
 }

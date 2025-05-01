@@ -6,5 +6,13 @@
     "Services": "Services",
     "Cart": "Cart",
     "Add tp Cart": "Add to Cart",
-    "Size": "Size"
+    "Size": "Size",
+    "Remove": "Remove",
+    "Order Summery": "Order Summery",
+    "Copoun": "Copoun",
+    "Apply": "Apply",
+    "Subtotal": "Subtotal",
+    "Shipping Fee": "Shipping Fee",
+    "Total": "Total",
+    "Checkout": "Checkout"
 }

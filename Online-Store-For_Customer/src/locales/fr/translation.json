@@ -6,5 +6,13 @@
     "Services": "Prestations de service",
     "Cart": "Chariot",
     "Add to Cart": "Ajouter au panier",
-    "Size": "Taille"
+    "Size": "Taille",
+    "Remove": "Retirer",
+    "Order Summery": "Récapitulatif de la commande",
+    "Copoun": "Copoun",
+    "Apply": "Appliquer",
+    "Subtotal": "Sous-total",
+    "Shipping Fee": "Frais de livraison",
+    "Total": "Total",
+    "Checkout": "Paiement"
 }

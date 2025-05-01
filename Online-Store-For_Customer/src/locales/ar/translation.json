@@ -6,5 +6,13 @@
     "Services": "الخدمات",
     "Cart": "السله",
     "Add to Cart": "اضف الى السله",
-    "Size": "المقاس"
+    "Size": "المقاس",
+    "Remove": "إزاله",
+    "Order Summery": "ملخص الطلب",
+    "Copoun": "كوبون",
+    "Apply": "تطبيق",
+    "Subtotal": "المجموع الفرعي",
+    "Shipping Fee": "رسوم الشحن",
+    "Total": "المجموع",
+    "Checkout": "صفحة الدفع"
 }

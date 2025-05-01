@@ -2,12 +2,21 @@ import classes from './Products.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import img from '../../assets/hoddie.png'
-export default function Product({ productID, productName, productDescription, productPrice }) {
+import { productActions } from '../../Store/productSlice';
+import { useDispatch, useSelector } from 'react-redux';
+export default function Product({ productDetails }) {
     const navigate = useNavigate();
     const { t } = useTranslation();
 
     function handleClick() {
-        navigate(`/products/${productID}`);
+        navigate(`/products/${productDetails.id}`);
+    }
+
+    const dispatch = useDispatch();
+    // const cartProduct = useSelector(state => state.product.product)
+
+    function addProductHandler(product) {
+        dispatch(productActions.addProduct(product))
     }
 
     return (
@@ -30,12 +39,12 @@ export default function Product({ productID, productName, productDescription, pr
                         </div>
                     </div>
 
-                    <p className={classes.add}>{t("Add to Cart")}</p>
+                    <p className={classes.add} onClick={() => addProductHandler(productDetails)}>{t("Add to Cart")}</p>
                 </div>
                 <div className={classes.product_container}>
-                    <h3 className={classes.title}>{productName}</h3>
-                    <p className={classes.description}>{productDescription}</p>
-                    <p className={classes.price}>{productPrice}</p>
+                    <h3 className={classes.title}>{productDetails.name}</h3>
+                    <p className={classes.description}>{productDetails.description}</p>
+                    <p className={classes.price}>{productDetails.price}</p>
                 </div>
             </div>
         </div>

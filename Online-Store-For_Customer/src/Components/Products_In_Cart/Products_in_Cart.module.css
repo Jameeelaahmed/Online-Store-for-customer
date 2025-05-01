@@ -1,0 +1,82 @@
+.cart {
+    background-color: var(--main-color);
+    width: 65%;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(5, 5, 5, 0.2) 0px 8px 24px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 3px solid var(--secondary-color);
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.img {
+    width: 100px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+[dir='ltr'] .container .img {
+    margin-right: 20px;
+}
+
+[dir='rtl'] .container .img {
+    margin-left: 20px;
+}
+
+.product_details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.product_details p {
+    width: fit-content;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actions .quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions .remove,
+.actions .quantity button {
+    padding: 15px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+[dir='ltr'] .actions .remove span,
+[dir='ltr'] .actions .quantity span {
+    margin-right: 10px;
+}
+
+[dir='rtl'] .actions .remove span,
+[dir='ltr'] .actions .quantity span {
+    margin-left: 10px;
+}

@@ -145,3 +145,29 @@
     border: 1px solid var(--secondary-color);
     max-height: 200px;
 }
+
+.specific_category {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    height: 40px;
+}
+
+.specific_category p {
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.specific_category p:hover {
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}

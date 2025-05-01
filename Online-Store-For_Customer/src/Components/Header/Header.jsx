@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import classes from './Header.module.css';
 import * as FaIcons from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n';
-import { NavLink } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
+import Auth from '../Authentication/Auth';
 export default function Header() {
     const { t } = useTranslation();
     const [isScrolled, setIsScrolled] = useState(false);
@@ -12,6 +12,7 @@ export default function Header() {
     const [currentLang, setCurrentLang] = useState(i18n.language);
     const location = useLocation();
     const path = location.pathname;
+    const authRef = useRef();
     const handleLanguageChange = (lang) => {
         document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
         i18n.changeLanguage(lang).then(() => {
@@ -30,6 +31,10 @@ export default function Header() {
             setIsScrolled(false);
         }
     };
+
+    function handleOpenAuth() {
+        authRef.current.open();
+    }
 
     useEffect(() => {
         // Attach scroll event listener
@@ -80,14 +85,19 @@ export default function Header() {
                 <p>{t("Contact")}</p>
             </div>
             {isScrolled && <div className={classes.placeholder}></div>}
-            <div className={`${classes.head_one} ${isScrolled ? classes.scrolled_one : ''}`}>
+            <div className={`${classes.head_one} ${isScrolled ? classes.scrolled_one : ''} ${path === '/search' && classes.head}`}>
                 <div className={classes.search}>
                     <div className={classes.search_container}>
-                        <FaIcons.FaMagnifyingGlass className={classes.search_icon} />
                         {/* <input type="search" /> */}
                     </div>
-                    <div className={classes.profile}>
-                        <FaIcons.FaUser />
+                    <div className={classes.icons}>
+                        {path !== '/search' &&
+                            <NavLink to="/search">
+                                <FaIcons.FaMagnifyingGlass className={classes.icon} />
+                            </NavLink>
+                        }
+                        <FaIcons.FaUser className={classes.icon} onClick={handleOpenAuth} />
+                        <Auth ref={authRef} />
                     </div>
                 </div>
                 <ul className={classes.list}>
@@ -113,7 +123,9 @@ export default function Header() {
                     </NavLink>
                 </ul>
                 <div className={classes.cart}>
-                    {t("Cart")}
+                    <NavLink to='/cart'>
+                        {t("Cart")}
+                    </NavLink>
                 </div>
             </div>
             {/* <div className={`${classes.head_two} ${isScrolled ? classes.scrolled_two : ''}`}>
