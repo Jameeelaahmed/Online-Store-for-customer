@@ -19,6 +19,10 @@ const productSlice = createSlice({
             state.totalPrice += addedItem.price;
         },
 
+
+
+
+
         deleteProduct(state, action) {
             const deletedItem = action.payload
             const existingItemIndex = state.items.findIndex((item) => item.id === deletedItem.id)
