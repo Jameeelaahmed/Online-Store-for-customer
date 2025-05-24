@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n';
 import { useLocation, NavLink } from 'react-router-dom';
 import Auth from '../Authentication/Auth';
+import { useSelector } from 'react-redux';
+
 export default function Header() {
     const { t } = useTranslation();
     const [isScrolled, setIsScrolled] = useState(false);
@@ -13,6 +15,8 @@ export default function Header() {
     const location = useLocation();
     const path = location.pathname;
     const authRef = useRef();
+    const productsInCart = useSelector(state => state.product.totalQuantity);
+
     const handleLanguageChange = (lang) => {
         document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
         i18n.changeLanguage(lang).then(() => {
@@ -124,7 +128,7 @@ export default function Header() {
                 </ul>
                 <div className={classes.cart}>
                     <NavLink to='/cart'>
-                        {t("Cart")}
+                        {t("Cart")} <span>({productsInCart})</span>
                     </NavLink>
                 </div>
             </div>

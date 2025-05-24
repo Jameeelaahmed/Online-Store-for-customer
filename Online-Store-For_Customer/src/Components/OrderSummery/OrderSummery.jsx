@@ -1,8 +1,11 @@
 import classes from './OrderSummery.module.css'
 import { useTranslation } from 'react-i18next';
-
+import { useSelector } from 'react-redux';
+import MainButton from '../MainButton/MainButton';
 export default function OrderSummery() {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
+    const productsInCart = useSelector(state => state.product);
+
     return (
         <div className={classes.orderSummery}>
             <p className={classes.heading}>{t("Order Summery")}</p>
@@ -23,9 +26,11 @@ export default function OrderSummery() {
             </div>
             <div className={classes.sub_detail}>
                 <span>{t('Total')}</span>
-                <span>price</span>
+                <span>{productsInCart.totalPrice} $</span>
             </div>
-            <button className={classes.checkout}>{t('Checkout')}</button>
+            <div className={classes.button_container}>
+                <MainButton textContent={t("Checkout")} width="100%"></MainButton>
+            </div>
         </div>
     )
 }

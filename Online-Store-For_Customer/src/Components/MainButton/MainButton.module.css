@@ -1,0 +1,24 @@
+.checkout {
+    width: fit-content;
+    margin-top: 20px;
+    --hover-shadows: 16px 16px 33px #121212, -16px -16px 33px #303030;
+    font-weight: bold;
+    border: none;
+    border-radius: 1.1em;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    color: white;
+    padding: 1em 2em;
+    transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
+        letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
+    box-shadow: 13px 13px 10px #1c1c1c, -13px -13px 10px #262626;
+    font-size: 18px;
+}
+
+[dir='ltr'] .checkout {
+    letter-spacing: 0.1em;
+}
+
+.checkout:hover {
+    box-shadow: var(--hover-shadows);
+}

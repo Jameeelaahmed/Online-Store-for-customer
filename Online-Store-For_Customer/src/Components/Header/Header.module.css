@@ -101,6 +101,8 @@ a {
 .cart {
     /* width: calc(100% / 3); */
     text-align: center;
+    outline: none;
+    border: none;
 }
 
 .search {

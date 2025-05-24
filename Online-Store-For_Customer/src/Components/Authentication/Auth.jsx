@@ -12,7 +12,6 @@ const Auth = forwardRef(function Auth({ children }, ref) {
             modalRef.current.close();
         },
     }));
-    console.log(document.dir);
     return createPortal(
         <dialog ref={modalRef} className={classes.modal}>
             <h2>Login / Sign Up</h2>

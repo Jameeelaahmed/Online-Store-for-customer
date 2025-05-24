@@ -3,7 +3,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    /* justify-content: space-evenly; */
     gap: 50px;
 }
 
@@ -20,6 +19,33 @@
     flex-direction: column;
     /* box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; */
     margin-bottom: 15px;
+    position: relative;
+}
+
+.warning{
+    padding: 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    width: fit-content;
+    transition: 0.4s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: fade-slide-in-from-top 0.3s ease-in-out;
+    transition:0.4s ;
+
+}
+
+@keyframes fade-slide-in-from-top {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .center {
@@ -99,8 +125,13 @@
     color: var(--main-color);
     display: flex;
     align-items: center;
+    transition: background-color 0.4s;
 }
 
+.red{
+    background-color: rgb(176, 0, 0);
+    transition: background-color 0.4s;
+}
 .size_dropUP {
     position: relative;
     display: inline-block;
@@ -112,17 +143,22 @@
 .size_text {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
 .dropUP {
-    max-height: 0;
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: var(--main-color);
-    padding: 0;
-    transition: max-height 0.9s ease, padding 0.4s ease;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--main-color);
+  padding: 0;
+  transition: max-height 0.9s ease, padding 0.4s ease;
+}
+
+.dropUP.open {
+  border: 1px solid var(--secondary-color);
+  max-height: 200px;
+  padding: 5px 0;
 }
 
 .dropUP p {
@@ -136,15 +172,15 @@
     color: var(--main-color);
 }
 
-.size_dropUP:hover .size_text {
+/* .size_dropUP:hover .size_text {
     opacity: 0;
     visibility: hidden;
-}
+} */
 
-.size_dropUP:hover .dropUP {
+/* .size_dropUP:hover .dropUP {
     border: 1px solid var(--secondary-color);
     max-height: 200px;
-}
+} */
 
 .specific_category {
     display: flex;

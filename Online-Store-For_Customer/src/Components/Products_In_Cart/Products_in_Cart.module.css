@@ -1,10 +1,11 @@
 .cart {
     background-color: var(--main-color);
-    width: 65%;
     padding: 50px;
+    flex-grow: 1;
     border-radius: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     box-shadow: rgba(5, 5, 5, 0.2) 0px 8px 24px;
+    height: fit-content;
 }
 
 .product {
@@ -13,6 +14,9 @@
     padding: 10px;
     border: 3px solid var(--secondary-color);
     border-radius: 20px;
+}
+
+.product:not(:last-child){
     margin-bottom: 30px;
 }
 
@@ -40,8 +44,70 @@
     width: 100%;
 }
 
-.product_details p {
+.product_description >  p:first-child{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
+.product_description > p:not(:last-child){
+    margin-bottom: 8px;
+}
+
+
+.product_details .product_description p {
     width: fit-content;
+}
+
+.edit_size{
+    position: relative;
+}
+
+.editSize_container {
+    position: absolute;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0 10px 0 10px; /* No bottom padding initially */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 67.8px;
+    box-shadow: 5px 5px 5px rgba(18, 18, 18, 0.468);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.4s ease;
+}
+
+.editSize_container.open {
+    max-height: 300px;
+    padding: 10px; /* Add padding back on open */
+}
+
+
+.editSize_container> p:not(:last-child){
+    margin-bottom:5px ;
+}
+
+.editSize_container p{
+    cursor: pointer;
+}
+
+.selected_Size{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+    background-color: var(--secondary-color);
+    width: 67.8px;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+.product_details > p{
+    width: 100px;
 }
 
 .actions {
@@ -79,4 +145,13 @@
 [dir='rtl'] .actions .remove span,
 [dir='ltr'] .actions .quantity span {
     margin-left: 10px;
+}
+
+@media (max-width:530px){
+    .product_details{
+        flex-direction: column;
+    }
+    .cart{
+        padding: 20px;
+    }
 }

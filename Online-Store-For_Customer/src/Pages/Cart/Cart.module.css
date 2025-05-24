@@ -1,5 +1,38 @@
 .cart_container {
     display: flex;
     margin: 50px;
-    justify-content: space-around;
+    gap: 50px;
 }
+
+.emptyCartimage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 88vh;
+    flex-direction: column;
+}
+
+.emptyCartimage img{
+    width: 500px;
+}
+
+@media (max-width:992px){
+    .cart_container{
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width:550px){
+    .emptyCartimage img{
+        width: 389px;
+    }
+
+    .cart_container{
+        margin: 20px;
+    }
+}
+
+
+
+
