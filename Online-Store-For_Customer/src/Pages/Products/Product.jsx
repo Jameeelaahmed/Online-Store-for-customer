@@ -44,13 +44,11 @@ export default function Product({ productDetails }) {
                 <div className={classes.add_to_cart}>
                     <div className={classes.size_dropUP} onClick={() => setShowSizes(!showSizes)}>
                         <p className={classes.size_text}>{selectedSize || t("Size")}</p>
-                        {/* <div className={classes.size_dropUP}> */}
                         <div className={`${classes.dropUP} ${showSizes ? classes.open : ""}`} >
                             {['XS', 'S', 'M', 'L', 'XL'].map(size => (
                                 <p key={size} onClick={() => { setSelectedSize(size); setShowSizes(false) }}>{size}</p>
                             ))}
                         </div>
-                        {/* </div> */}
                     </div>
                     <p className={`${classes.add} ${sizeWarning && classes.red} `} onClick={() => addProductHandler(productDetails)}>{t("Add to Cart")}</p>
                 </div>

@@ -26,7 +26,7 @@ export default function OrderSummery() {
             </div>
             <div className={classes.sub_detail}>
                 <span>{t('Total')}</span>
-                <span>{productsInCart.totalPrice} $</span>
+                <span>{productsInCart.totalPrice.toFixed(2)} $</span>
             </div>
             <div className={classes.button_container}>
                 <MainButton textContent={t("Checkout")} width="100%"></MainButton>

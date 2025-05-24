@@ -10,11 +10,10 @@ export default function Products_In_Cart() {
     const { t } = useTranslation()
     const productsInCart = useSelector(state => state.product.items)
     const dispatch = useDispatch();
-    const [selectedSize, setSelectedSize] = useState("");
-    const [activeEditProductSize, setActiveEditProductSize] = useState(null);
+    const [activeEditProduct, setActiveEditProduct] = useState({ id: null, size: null });
 
     function addProductHandler(product) {
-        dispatch(productActions.addProduct({ ...product, size: selectedSize }))
+        dispatch(productActions.addProduct({ ...product, size: product.size }))
     }
 
     function removeProductsHandler(product) {
@@ -37,20 +36,31 @@ export default function Products_In_Cart() {
                                     <p className={classes.description}>{product.name}</p>
                                     <p className={classes.description}>{product.description}</p>
                                     <div className={`${classes.description} ${classes.edit_size}`} onClick={() =>
-                                        setActiveEditProductSize(activeEditProductSize === product.size ? null : product.size)
-                                    }>
+                                        setActiveEditProduct(
+                                            activeEditProduct.id === product.id && activeEditProduct.size === product.size
+                                                ? { id: null, size: null }
+                                                : { id: product.id, size: product.size }
+                                        )
+                                    }
+                                    >
                                         <div className={classes.selected_Size}>
                                             <p>{product.size}</p>
                                             <FaIcons.FaCaretDown />
                                         </div>
-                                        <div className={`${classes.editSize_container} ${activeEditProductSize === product.size ? classes.open : ''}`}>
+                                        <div className={`${classes.editSize_container} ${activeEditProduct.id === product.id && activeEditProduct.size === product.size ? classes.open : ''
+                                            }`}>
                                             {['XS', 'S', 'M', 'L', 'XL'].map(size => (
-                                                <p key={size} onClick={() => { setSelectedSize(size); }}>{size}</p>
+                                                <p key={size} onClick={() =>
+                                                    dispatch(productActions.changeProductSize({ id: product.id, oldSize: product.size, newSize: size }))
+                                                }>
+                                                    {size}
+                                                </p>
+
                                             ))}
                                         </div>
                                     </div>
                                 </div>
-                                <p className={classes.price}>{product.totalSameItemPrice} $</p>
+                                <p className={classes.price}>{product.totalSameItemPrice.toFixed(2)} $</p>
                             </div>
                         </div>
                         <div className={classes.actions}>
@@ -65,7 +75,8 @@ export default function Products_In_Cart() {
                             </div>
                         </div>
                     </div>
-                ))}
-        </div>
+                ))
+            }
+        </div >
     )
 }
